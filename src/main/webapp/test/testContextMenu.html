@@ -1,0 +1,14 @@
+<html>
+<TITLE>测试右击事件</TITLE>
+<head></head>
+<script language="JavaScript">
+    window.onload = function() {
+        document.getElementById("mydiv").oncontextmenu = function() {
+            alert("右击了")
+        }
+    }
+</script>
+<body>
+<div id="mydiv">菜单</div>
+</body>
+</html>
