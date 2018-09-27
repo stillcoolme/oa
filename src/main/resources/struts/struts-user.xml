@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+  <package name="user" namespace="/" extends="struts-default">
+  	<action name="userAction_*" method="{1}" class="userAction">
+  		<result name="listAction">/WEB-INF/jsp/user/list.jsp</result>
+  		<result name="addUI">/WEB-INF/jsp/user/add.jsp</result>
+  		<result name="updateUI">/WEB-INF/jsp/user/update.jsp</result>
+  		<result name="action2action"  type="redirectAction">userAction_getAllUser.action</result>
+  	</action>
+  	
+  </package>
+
+ 
+   <package name="userjson" namespace="/" extends="json-default">
+  	<action name="userJSONAction_*" method="{1}" class="userAction">
+  		<result type="json"></result>			<!--指定返回的结果集的类型为：json -->
+  	</action>
+  </package>
+  <!-- (注：一旦为Action指定了该结果处理类型<result type="json"></result>。
+  		JSON插件就会自己主动将Action里的数据序列化成JSON格式的数据。 
+      	并返回给client物理视图的JavaScript。
+      	简单的说，JSON插件同意我们在JavaScript中异步的调用Action， 
+      	并且Action不须要指定视图来显示Action的信息显示。 
+      	而是由JSON插件来负责详细将Action里面详细的信息返回给调用页面。)
+   -->
+
+  
+</struts>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

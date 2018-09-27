@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+	
+<struts>
+  <package name="department" namespace="/" extends="struts-default">
+  	<action name="departmentAction_*" method="{1}" class="departmentAction">
+  		<result name="listAction">WEB-INF/jsp/department/list.jsp</result>
+		<!-- redirectAction 重定向 的话， 第一个action的数据传不到后面的这个action，因为后面这个是重新发过来的请求了，原来的valueStack没了，valueStack是和request同一生命周期的-->
+  		<result name="action2action" type="redirectAction">departmentAction_getAllDepartment.action</result>
+  	    <result name="addUI">WEB-INF/jsp/department/add.jsp</result>
+  	    <result name="updateUI">WEB-INF/jsp/department/update.jsp</result>
+  	</action>
+  </package>
+</struts>	
